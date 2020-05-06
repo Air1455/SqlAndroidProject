@@ -5,4 +5,5 @@
     <string name="firstName">Prénom</string>
     <string name="age">Age</string>
     <string name="job">Métier</string>
+    <string name="goButton">Go</string>
 </resources>
