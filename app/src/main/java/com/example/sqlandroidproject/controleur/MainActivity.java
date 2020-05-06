@@ -1,8 +1,10 @@
-package com.example.sqlandroidproject;
+package com.example.sqlandroidproject.controleur;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
+
+import com.example.sqlandroidproject.R;
 
 public class MainActivity extends AppCompatActivity {
 

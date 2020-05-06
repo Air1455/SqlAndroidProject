@@ -4,15 +4,47 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity">
+    tools:context=".controleur.MainActivity"
+    android:background="@android:color/darker_gray">
 
     <TextView
+        android:id="@+id/welcomeMessage"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Hello World!"
-        app:layout_constraintBottom_toBottomOf="parent"
+        android:text="@string/welcomeMessage"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginTop="100dp"
+        android:textSize="25dp"
+        android:textColor="@android:color/holo_blue_dark"/>
+    <EditText
+        android:id="@+id/inputTextFirstName"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="@string/firstName"
+        app:layout_constraintTop_toBottomOf="@+id/welcomeMessage"
+        android:layout_marginTop="70dp"/>
+    <EditText
+        android:id="@+id/inputTextLastName"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="@string/lastName"
+        app:layout_constraintTop_toBottomOf="@+id/inputTextFirstName"
+        android:layout_marginTop="20dp"/>
+    <EditText
+        android:id="@+id/inputTextAge"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="@string/age"
+        app:layout_constraintTop_toBottomOf="@+id/inputTextLastName"
+        android:layout_marginTop="20dp"/>
+    <EditText
+        android:id="@+id/inputTextJob"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="@string/job"
+        app:layout_constraintTop_toBottomOf="@+id/inputTextAge"
+        android:layout_marginTop="20dp"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
