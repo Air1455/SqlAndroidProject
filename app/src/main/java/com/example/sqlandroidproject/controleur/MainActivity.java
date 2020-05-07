@@ -2,6 +2,7 @@ package com.example.sqlandroidproject.controleur;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Context;
 import android.net.wifi.p2p.WifiP2pManager;
 import android.os.Bundle;
 import android.view.View;
@@ -12,6 +13,7 @@ import android.widget.Toast;
 
 import com.example.sqlandroidproject.R;
 import com.example.sqlandroidproject.model.User;
+import com.example.sqlandroidproject.model.bddSQLaccess;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -22,6 +24,8 @@ public class MainActivity extends AppCompatActivity {
     private EditText jobEditText;
     private Button goButton;
     private User user;
+    private Context context;
+    private static bddSQLaccess bddSQLaccess;
 
     @Override
     protected void onCreate(final Bundle savedInstanceState) {
@@ -34,6 +38,8 @@ public class MainActivity extends AppCompatActivity {
         jobEditText = findViewById ( R.id.inputTextJob );
         goButton = findViewById ( R.id.goButton );
         welcomeMessage = findViewById ( R.id.welcomeMessage );
+        context = getApplicationContext ();
+        bddSQLaccess = new bddSQLaccess ( context );
 
         goButton.setOnClickListener ( new View.OnClickListener () {
             @Override
@@ -44,8 +50,13 @@ public class MainActivity extends AppCompatActivity {
                 String job = jobEditText.getText ().toString ();
 
                 user = new User(firstName, lastName, age, job);
+                bddSQLaccess.ajout ( user );
 
-                String fulltext = "Bienvenue " + user.getFirstName () + " " + user.getLastName () + ".\n" + user.getAge () + " ans\nProfession : " + user.getJob ();
+                User user2 = bddSQLaccess.recupLastInput ();
+
+
+                String fulltext = "Bienvenue " + user2.getFirstName () + " " + user2.getLastName () + ".\n" + user2.getAge () + " ans\nProfession : " + user2.getJob ();
+                Toast.makeText ( context, fulltext, Toast.LENGTH_SHORT ).show ();
                 welcomeMessage.setText ( fulltext );
             }
         } );
